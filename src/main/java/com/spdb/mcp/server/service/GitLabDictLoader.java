@@ -72,14 +72,17 @@ public class GitLabDictLoader implements DictLoader {
 
     /**
      * 构建 JGit 凭证提供器。
-     * GitLab HTTP Token 认证：用户名固定为 "oauth2"，密码为 token。
+     * GitLab PAT 认证：用户名使用配置的 username（非 "oauth2"），密码为 token。
+     * "oauth2" 仅适用于 OAuth2 令牌；PAT 必须使用实际 GitLab 用户名，
+     * 否则部分 GitLab 实例会返回 404，导致 NoRemoteRepositoryException。
      */
     private UsernamePasswordCredentialsProvider buildCredentials() {
         if (token != null && !token.isEmpty()) {
-            log.debug("使用 Token 认证");
-            return new UsernamePasswordCredentialsProvider("oauth2", token);
+            String user = (username != null && !username.isEmpty()) ? username : "oauth2";
+            log.debug("使用 Token 认证, user={}", user);
+            return new UsernamePasswordCredentialsProvider(user, token);
         }
-        log.debug("使用用户名密码认证");
+        log.debug("使用用户名密码认证, user={}", username);
         return new UsernamePasswordCredentialsProvider(username, password);
     }
 

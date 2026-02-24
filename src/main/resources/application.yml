@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 1111
 
 spring:
   application:
@@ -67,9 +67,9 @@ management:
 
 logging:
   level:
-    com.spdb.mcp: DEBUG
-    org.springframework.ai: DEBUG
-    org.springframework.ai.mcp: DEBUG
-    org.springframework.web: DEBUG
-    org.springframework.boot.autoconfigure: DEBUG
-    org.springframework.context: DEBUG
+    com.spdb.mcp: ERROR
+    org.springframework.ai: ERROR
+    org.springframework.ai.mcp: ERROR
+    org.springframework.web: ERROR
+    org.springframework.boot.autoconfigure: ERROR
+    org.springframework.context: ERROR

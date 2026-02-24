@@ -2,8 +2,8 @@
 
 ## 版本信息
 
-- **版本号**: 0224-1.0
-- **打包文件**: `dict-mcp-server-0224-1.0.zip`
+- **版本号**: 0224-3.0
+- **打包文件**: `dict-mcp-server-0224-3.0.zip`
 - **打包大小**: 185 KB
 
 ## 部署步骤
@@ -83,7 +83,7 @@ mvn clean package -DskipTests
 构建完成后，JAR 包位于：
 
 ```
-target/dict-mcp-server-0224-1.0.jar
+target/dict-mcp-server-0224-3.0.jar
 ```
 
 ### 5. 运行服务
@@ -91,20 +91,20 @@ target/dict-mcp-server-0224-1.0.jar
 #### 前台运行
 
 ```bash
-java -jar target/dict-mcp-server-0224-1.0.jar
+java -jar target/dict-mcp-server-0224-3.0.jar
 ```
 
 #### 后台运行
 
 ```bash
-nohup java -jar target/dict-mcp-server-0224-1.0.jar > dict-mcp-server.log 2>&1 &
+nohup java -jar target/dict-mcp-server-0224-3.0.jar > dict-mcp-server.log 2>&1 &
 ```
 
 #### 使用环境变量（推荐）
 
 ```bash
 export GITLAB_TOKEN=你的token
-java -jar target/dict-mcp-server-0224-1.0.jar
+java -jar target/dict-mcp-server-0224-3.0.jar
 ```
 
 对应配置：
@@ -298,7 +298,7 @@ dict:
 ### 调整 JVM 参数
 
 ```bash
-java -Xms512m -Xmx1024m -jar target/dict-mcp-server-0224-1.0.jar
+java -Xms512m -Xmx1024m -jar target/dict-mcp-server-0224-3.0.jar
 ```
 
 ## 升级说明

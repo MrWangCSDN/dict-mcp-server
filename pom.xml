@@ -7,7 +7,7 @@
 
     <groupId>com.spdb.mcp</groupId>
     <artifactId>dict-mcp-server</artifactId>
-    <version>0224-1.0</version>
+    <version>0224-3.0</version>
     <packaging>jar</packaging>
 
     <name>Dict MCP Server</name>

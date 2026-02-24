@@ -8,7 +8,7 @@ echo "=========================================="
 echo ""
 
 # 查找 Java 进程
-PID=$(ps aux | grep "dict-mcp-server-0224-1.0.jar" | grep -v grep | awk '{print $2}')
+PID=$(ps aux | grep "dict-mcp-server-0224-3.0.jar" | grep -v grep | awk '{print $2}')
 
 if [ -z "$PID" ]; then
     echo "未找到运行中的服务"

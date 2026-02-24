@@ -4,7 +4,7 @@
 
 echo "=========================================="
 echo "Dict MCP Server 启动脚本"
-echo "版本: 0224-1.0"
+echo "版本: 0224-3.0"
 echo "=========================================="
 echo ""
 
@@ -25,7 +25,7 @@ echo "✓ Java 环境检查通过"
 echo ""
 
 # 检查 JAR 包是否存在
-JAR_FILE="target/dict-mcp-server-0224-1.0.jar"
+JAR_FILE="target/dict-mcp-server-0224-3.0.jar"
 
 if [ ! -f "$JAR_FILE" ]; then
     echo "未找到 JAR 包，开始构建..."
