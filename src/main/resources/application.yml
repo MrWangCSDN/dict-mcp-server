@@ -43,15 +43,15 @@ dict:
   version: 1.0.0-SNAPSHOT
   xml-path: dict/MDict.d_schema.xml
   
-  # GitLab 仓库配置（loader.type=gitlab 时使用）
+  # GitLab 仓库配置（loader.type=gitlab 时使用，基于 JGit 实现）
   gitlab:
-    url: http://gitlab.spdb.com
-    project-id: 64142
+    # Git 克隆地址（必填）：http://host/group/repo.git 格式
+    git-url: http://gitlab.spdb.com/c-wangsh8/dictionary.git
     branch: master
     file-path: src/main/resources/dict/MDict.d_schema.xml
-    # 认证方式 1: 使用 Token（推荐）
+    # 认证方式 1: 使用 Token（推荐，token 不为空时优先使用）
     token: WScw9XyM8hM1sYKLAz8o
-    # 认证方式 2: 使用用户名密码（Token 为空时使用）
+    # 认证方式 2: 使用用户名密码（token 为空时使用）
     username: c-wangsh8
     password: Liang*201314
 
