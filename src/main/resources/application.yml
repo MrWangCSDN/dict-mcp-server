@@ -1,0 +1,75 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: dict-mcp-server
+  ai:
+    mcp:
+      server:
+        # 服务器信息
+        name: dict-mcp-server
+        version: 1.0.0
+        # 服务器类型（SYNC 用于同步实现）
+        type: SYNC
+        # 协议类型：STREAMABLE（Streamable HTTP）或 SSE（Server-Sent Events）
+        protocol: STREAMABLE
+        # 启用工具能力
+        capabilities:
+          tool: true
+          resource: true
+          prompt: true
+          completion: true
+        # 启用 Function Bean 自动转换为 MCP Tool
+        tool-callback-converter: true
+        # Streamable HTTP 端点配置
+        streamable-http:
+          mcp-endpoint: /mcp
+
+# 字典文件配置
+dict:
+  # 加载器类型: maven（本地 Maven 仓库）或 gitlab（GitLab 仓库）
+  loader:
+    type: gitlab
+  
+  # 定时刷新配置（仅 GitLab 加载器生效）
+  refresh:
+    enabled: true        # 是否启用定时刷新
+    interval: 20000      # 刷新间隔（毫秒），默认 20 秒
+  
+  # Maven 本地仓库配置（loader.type=maven 时使用）
+  group-id: com.spdb.ccbs
+  artifact-id: dictionary
+  version: 1.0.0-SNAPSHOT
+  xml-path: dict/MDict.d_schema.xml
+  
+  # GitLab 仓库配置（loader.type=gitlab 时使用）
+  gitlab:
+    url: http://gitlab.spdb.com
+    project-id: 64142
+    branch: master
+    file-path: src/main/resources/dict/MDict.d_schema.xml
+    # 认证方式 1: 使用 Token（推荐）
+    token: WScw9XyM8hM1sYKLAz8o
+    # 认证方式 2: 使用用户名密码（Token 为空时使用）
+    username: c-wangsh8
+    password: Liang*201314
+
+# Actuator 配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+
+logging:
+  level:
+    com.spdb.mcp: DEBUG
+    org.springframework.ai: DEBUG
+    org.springframework.ai.mcp: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.boot.autoconfigure: DEBUG
+    org.springframework.context: DEBUG
